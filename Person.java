@@ -9,6 +9,18 @@ public class Person {
     private String firstName;
     private String lastName;
 
+    private int numberOfNameChanges = 0;
+
+    public int getNumberOfNameChanges(){
+        return numberOfNameChanges;
+    }
+
+    private static int numberOfTotalNameChanges = 0;
+
+    public static int getNumberOfTotalNameChanges(){
+        return numberOfTotalNameChanges;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -19,16 +31,15 @@ public class Person {
     
     public void setFirstName(String name) {
         this.firstName = name;
+        numberOfNameChanges = numberOfNameChanges + 1;
+        numberOfTotalNameChanges++;
     }
 
     // class constructor
 
-    Person() {
-    }
-
-    Person(String f, String l) {
+    Person(String firstname, String lastname) {
         // initialize fields
-        this.firstName = f;
-        this.lastName = l;
+        this.firstName = firstname;
+        this.lastName = lastname;
     }
 }
